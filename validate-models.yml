@@ -1,0 +1,69 @@
+name: Validate 3D Models
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-models:
+    runs-on: ubuntu-latest
+    name: Check GLB files exist and are valid
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check GLB files are present
+        run: |
+          echo "Checking for required GLB model files..."
+          
+          FILES=(
+            "physics/electric-current/Electric_Current_AR.glb"
+            "chemistry/carbon-atom/Carbon_Atom_3D.glb"
+            "chemistry/dna-double-helix/DNA_DoubleHelix_3D.glb"
+            "astronomy/solar-system/SolarSystem_Fixed.glb"
+          )
+          
+          ALL_OK=true
+          for f in "${FILES[@]}"; do
+            if [ -f "$f" ]; then
+              SIZE=$(du -sh "$f" | cut -f1)
+              echo "✅ Found: $f ($SIZE)"
+            else
+              echo "❌ Missing: $f"
+              ALL_OK=false
+            fi
+          done
+          
+          if [ "$ALL_OK" = false ]; then
+            echo "Some model files are missing!"
+            exit 1
+          fi
+          
+          echo "All model files present!"
+
+      - name: Check preview images exist
+        run: |
+          echo "Checking for preview PNG renders..."
+          
+          IMAGES=(
+            "physics/electric-current/Electric_Current_AR.png"
+            "chemistry/carbon-atom/Carbon_Atom_3D.png"
+            "chemistry/dna-double-helix/DNA_DoubleHelix_3D.png"
+            "astronomy/solar-system/SolarSystem_Fixed.png"
+          )
+          
+          for img in "${IMAGES[@]}"; do
+            if [ -f "$img" ]; then
+              echo "✅ Preview: $img"
+            else
+              echo "⚠️  Missing preview: $img"
+            fi
+          done
+
+      - name: Report file sizes
+        run: |
+          echo "Model file sizes:"
+          find . -name "*.glb" -exec du -sh {} \; | sort -h

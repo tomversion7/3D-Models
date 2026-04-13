@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AR Education 3D Models — Viewer</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0a0a1a;
+      color: #e8e8f0;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background: linear-gradient(180deg, #0d0d2b 0%, #0a0a1a 100%);
+      border-bottom: 1px solid #1e1e3a;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.4rem;
+    }
+
+    header p { color: #8888aa; font-size: 0.95rem; }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.2rem;
+      flex-wrap: wrap;
+      background: #0d0d2b;
+    }
+
+    .tab-btn {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid #2e2e5e;
+      border-radius: 999px;
+      background: transparent;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover, .tab-btn.active {
+      background: #3730a3;
+      border-color: #6366f1;
+      color: #fff;
+    }
+
+    .viewer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem;
+      gap: 1.2rem;
+    }
+
+    .model-card {
+      display: none;
+      width: 100%;
+      max-width: 900px;
+      background: #12122a;
+      border: 1px solid #1e1e40;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .model-card.active { display: block; }
+
+    model-viewer {
+      width: 100%;
+      height: 500px;
+      background: #06060f;
+      --progress-bar-color: #6366f1;
+    }
+
+    .model-info {
+      padding: 1.2rem 1.5rem;
+      border-top: 1px solid #1e1e40;
+    }
+
+    .model-info h2 { font-size: 1.3rem; margin-bottom: 0.4rem; }
+    .model-info p  { color: #8888aa; font-size: 0.88rem; line-height: 1.6; }
+
+    .badges {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.7rem;
+    }
+
+    .badge {
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-physics  { background: #1e3a5f; color: #60a5fa; }
+    .badge-chemistry{ background: #1a3a2a; color: #34d399; }
+    .badge-bio      { background: #3a1a3a; color: #c084fc; }
+    .badge-astro    { background: #2a1a0a; color: #fb923c; }
+    .badge-hs       { background: #1e1e1e; color: #aaa; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #555;
+      font-size: 0.82rem;
+      border-top: 1px solid #1e1e3a;
+      margin-top: 2rem;
+    }
+
+    footer a { color: #6366f1; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎓 AR Education 3D Models</h1>
+  <p>Interactive 3D models for Physics, Chemistry & Astronomy — Click & drag to rotate · Tap AR to view in your space</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showModel('electric')">⚡ Electric Current</button>
+  <button class="tab-btn" onclick="showModel('atom')">⚛️ Carbon Atom</button>
+  <button class="tab-btn" onclick="showModel('dna')">🧬 DNA Helix</button>
+  <button class="tab-btn" onclick="showModel('solar')">🌌 Solar System</button>
+</div>
+
+<div class="viewer-container">
+
+  <!-- Electric Current -->
+  <div class="model-card active" id="model-electric">
+    <model-viewer
+      src="physics/electric-current/Electric_Current_AR.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="1000"
+      shadow-intensity="0.8"
+      alt="Electric Current Circuit Model">
+    </model-viewer>
+    <div class="model-info">
+      <h2>⚡ Electric Current (I)</h2>
+      <p>A complete circuit showing current flow — battery, copper wire, light bulb, electrons, and directional arrows. Demonstrates conventional current vs electron flow.</p>
+      <div class="badges">
+        <span class="badge badge-physics">Physics</span>
+        <span class="badge badge-hs">High School</span>
+        <span class="badge badge-hs">I = Q / t</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carbon Atom -->
+  <div class="model-card" id="model-atom">
+    <model-viewer
+      src="chemistry/carbon-atom/Carbon_Atom_3D.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      shadow-intensity="0.5"
+      alt="Carbon Atom Bohr Model">
+    </model-viewer>
+    <div class="model-info">
+      <h2>⚛️ Carbon Atom (Bohr Model)</h2>
+      <p>3D Bohr model of Carbon-12 with 6 protons (red), 6 neutrons (grey) in the nucleus, and 6 electrons across 2 shells (K: 2e, L: 4e valence electrons).</p>
+      <div class="badges">
+        <span class="badge badge-chemistry">Chemistry</span>
+        <span class="badge badge-hs">High School</span>
+        <span class="badge badge-hs">Z=6 · A=12 · Config: 2,4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DNA -->
+  <div class="model-card" id="model-dna">
+    <model-viewer
+      src="chemistry/dna-double-helix/DNA_DoubleHelix_3D.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      shadow-intensity="0.5"
+      alt="DNA Double Helix">
+    </model-viewer>
+    <div class="model-info">
+      <h2>🧬 DNA Double Helix</h2>
+      <p>20 base pairs across 2 full helical turns. Color-coded: Adenine (blue) pairs with Thymine (yellow), Guanine (green) pairs with Cytosine (pink). 36° twist per base pair.</p>
+      <div class="badges">
+        <span class="badge badge-bio">Biology</span>
+        <span class="badge badge-chemistry">Chemistry</span>
+        <span class="badge badge-hs">High School</span>
+        <span class="badge badge-hs">A-T · G-C</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solar System -->
+  <div class="model-card" id="model-solar">
+    <model-viewer
+      src="astronomy/solar-system/SolarSystem_Fixed.glb"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="500"
+      shadow-intensity="0.3"
+      alt="Solar System">
+    </model-viewer>
+    <div class="model-info">
+      <h2>🌌 Solar System</h2>
+      <p>All 8 planets with real NASA textures — Sun, Mercury, Venus, Earth (+Moon), Mars, Jupiter, Saturn (with 3-ring system), Uranus, Neptune. Includes 80-asteroid belt.</p>
+      <div class="badges">
+        <span class="badge badge-astro">Astronomy</span>
+        <span class="badge badge-hs">All Levels</span>
+        <span class="badge badge-hs">Real NASA Textures</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Built with ❤️ using <a href="https://blender.org">Blender</a> · 
+  View source on <a href="https://github.com/YOUR-USERNAME/AR-Education-3D-Models">GitHub</a> ·
+  Textures: <a href="https://www.solarsystemscope.com/textures/">Solar System Scope</a>
+</footer>
+
+<script>
+  function showModel(id) {
+    document.querySelectorAll('.model-card').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('model-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
