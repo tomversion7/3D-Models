@@ -14,10 +14,10 @@
 
 | # | Model | Subject | File | Preview |
 |---|-------|---------|------|---------|
-| 1 | ⚡ Electric Current (I) | Physics | `Electric_Current_AR.glb` | Circuit with battery, bulb, electrons |
-| 2 | ⚛️ Carbon Atom | Chemistry | `Carbon_Atom_3D.glb` | Bohr model — 2 shells, nucleus |
-| 3 | 🧬 DNA Double Helix | Biology/Chemistry | `DNA_DoubleHelix_3D.glb` | 20 base pairs, A-T/G-C color coded |
-| 4 | 🌌 Solar System | Astronomy | `SolarSystem_Fixed.glb` | All 8 planets with real NASA textures |
+| 1 | Electric Current | Physics | `Electric_Current_AR.glb` | Circuit with battery, bulb, electrons |
+| 2 | Carbon Atom | Chemistry | `Carbon_Atom_3D.glb` | Bohr model — 2 shells, nucleus |
+| 3 | DNA Double Helix | Biology/Chemistry | `DNA_DoubleHelix_3D.glb` | 20 base pairs, A-T/G-C color coded |
+| 4 | Solar System | Astronomy | `SolarSystem_Fixed.glb` | All 8 planets with real NASA textures |
 
 ---
 
@@ -43,7 +43,7 @@ AR-Education-3D-Models/
 │   │   ├── Carbon_Atom_3D.blend
 │   │   └── Carbon_Atom_3D.png
 │   │
-│   └── 📂 dna-double-helix/
+│   └── 📂 biology/
 │       ├── DNA_DoubleHelix_3D.glb
 │       ├── DNA_DoubleHelix_3D.blend
 │       └── DNA_DoubleHelix_3D.png
@@ -57,7 +57,7 @@ AR-Education-3D-Models/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### View in Browser (No install needed)
 Drag any `.glb` file into **[model-viewer.dev](https://modelviewer.dev/editor/)** or **[gltf.report](https://gltf.report)** to instantly preview.
@@ -106,17 +106,17 @@ gltf.InstantiateMainScene(transform);
 
 ## 🔬 Model Details
 
-### ⚡ Electric Current (I) — Physics
+### Electric Current (I) — Physics
 **Concept:** Flow of charge through a conductor
 
 | Component | Description |
 |-----------|-------------|
-| 🔋 Battery | EMF source with + (red) and − (blue) terminals |
-| 🟡 Copper Wire | Full rectangular closed circuit loop |
-| 💡 Light Bulb | Glass sphere + glowing filament + socket base |
-| 🔵 Electrons | 8 blue spheres flowing around the circuit |
-| 🔴 Current Arrows | Conventional current direction (→) |
-| 🔵 Electron Arrows | Electron flow direction (←, opposite) |
+| Battery | EMF source with + (red) and − (blue) terminals |
+| Copper Wire | Full rectangular closed circuit loop |
+| Light Bulb | Glass sphere + glowing filament + socket base |
+| Electrons | 8 blue spheres flowing around the circuit |
+| Current Arrows | Conventional current direction (→) |
+| Electron Arrows | Electron flow direction (←, opposite) |
 
 **Formula shown:** `I = Q / t` (Amperes)
 
@@ -127,11 +127,11 @@ gltf.InstantiateMainScene(transform);
 
 | Component | Description |
 |-----------|-------------|
-| 🔴 Protons | 6 red spheres packed in nucleus |
-| ⚪ Neutrons | 6 grey spheres packed in nucleus |
-| 🔵 Shell 1 (K) | 2 electrons, radius 1.6 units |
-| 🟢 Shell 2 (L) | 4 valence electrons, radius 3.2 units |
-| 🌟 Nucleus Aura | Warm orange glow sphere |
+| Protons | 6 red spheres packed in nucleus |
+| Neutrons | 6 grey spheres packed in nucleus |
+| Shell 1 (K) | 2 electrons, radius 1.6 units |
+| Shell 2 (L) | 4 valence electrons, radius 3.2 units |
+| Nucleus Aura | Warm orange glow sphere |
 
 **Electron config:** 2, 4 | **Atomic number:** 6 | **Mass number:** 12
 
@@ -200,14 +200,14 @@ gltf.InstantiateMainScene(transform);
 
 | Platform | Support |
 |----------|---------|
-| 🌍 Google Model Viewer (Web) | ✅ Full |
-| 📱 Android AR | ✅ Full |
-| 🍎 iOS AR (Quick Look) | ✅ Full |
-| 🎮 Unity | ✅ Full |
-| 🎮 Unreal Engine | ✅ Full |
-| 🥽 Meta Quest / VR | ✅ Full |
-| 🖥️ Sketchfab | ✅ Full |
-| 🖥️ three.js / Babylon.js | ✅ Full |
+| Google Model Viewer (Web) | ✅ Full |
+| Android AR | ✅ Full |
+| iOS AR (Quick Look) | ✅ Full |
+| Unity | ✅ Full |
+| Unreal Engine | ✅ Full |
+| Meta Quest / VR | ✅ Full |
+| Sketchfab | ✅ Full |
+| three.js / Babylon.js | ✅ Full |
 
 ---
 
@@ -252,11 +252,11 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 Contributions are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 Ideas for new models:
-- 🔭 Black Hole / Gravitational Lensing
-- 🧲 Magnetic Field Lines
-- 💧 Water Molecule (H₂O)
-- 🧪 NaCl Ionic Crystal Lattice
-- 🫁 Human Heart / Cell
+- Black Hole / Gravitational Lensing
+- Magnetic Field Lines
+- Water Molecule (H₂O)
+- NaCl Ionic Crystal Lattice
+- Human Heart / Cell
 
 ---
 
